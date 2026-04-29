@@ -1,0 +1,247 @@
+@online{AIThesis,
+Author = {\textbf{Arianne} \textbf{Meijer-van de Griend}},
+Title = {Constrained quantum CNOT circuit re-synthesis using deep reinforcement learning},
+Year = {2019},
+Eprint = {RG.2.2.11886.77125},
+Eprinttype = {ResearchGate},
+note = {Master thesis Artificial Intelligence},
+url_Paper = {https://www.researchgate.net/publication/335977643_Constrained_quantum_CNOT_circuit_re-synthesis_using_deep_reinforcement_learning},
+abstract = {In this master thesis, we describe a novel approach to constrained CNOT circuit resynthesis as a first step towards neural constrained quantum circuit re-synthesis. We train a neural network to do constrained Gaussian elimination from a parity matrix using deep reinforcement learning. The CNOT circuit is transformed into a parity matrix from which an equivalent CNOT circuit is synthesized such that all CNOT gates adhere to the connectivity constraints provided by the quantum computer architecture. For our n-step deep Q learning approach, we have used an asynchronous dueling neural network with three different action selection policies: ϵ-greedy, softmax and a novel oracle selection policy. To train this neural network, we have proposed a novel phased training procedure that guides the training process from trivial problems to arbitrary ones while simulating. Although we were only able to successfully train an agent for trivial quantum computer connectivity constraints, the 2 and 3 qubit coupling graphs. We did show that those agents were able to perform similar to the genetic Steiner baseline and could even improve on them. We also investigated the effect of coupling graph sizes and connectivity on network performance and training time. Lastly, we show that transfer learning can result in an improved network, but it takes longer to train. This is a very promising start of a new research field that could result in a universal quantum circuit optimization and mapping algorithm that is robust to both expected and unexpected future changes in quantum computer architectures.},
+keywords = {unpublished}
+}
+
+@article{1904.00633,
+Author = {Kissinger, Aleks and \textbf{Arianne} \textbf{Meijer-van de Griend}},
+Title = {CNOT circuit extraction for topologically-constrained quantum memories},
+journal={Quantum Information and Computation},
+volume={20},
+number={7\&8},
+pages={581--596},
+year={2020},
+doi={10.26421/QIC20.7-8-4},
+note = {Also presented at QPL 2019, Chapman University (Orange, USA)},
+url_Paper = {http://www.rintonpress.com/xxqic20/qic-20-78/0581-0596.pdf},
+abstract = {Many physical implementations of quantum computers impose stringent
+memory constraints in which 2-qubit operations can only be performed between
+qubits which are nearest neighbours in a lattice or graph structure. Hence, before
+a computation can be run on such a device, it must be mapped onto the physical
+architecture. That is, logical qubits must be assigned physical locations in the
+quantum memory, and the circuit must be replaced by an equivalent one containing
+only operations between nearest neighbours. In this paper, we give a new technique
+for quantum circuit mapping (a.k.a. routing), based on Gaussian elimination
+constrained to certain optimal spanning trees called Steiner trees. We give a reference
+implementation of the technique for CNOT circuits and show that it significantly outperforms general-purpose routines on CNOT circuits. We then comment on how the
+technique can be extended straightforwardly to the synthesis of CNOT+Rz circuits and
+as a modification to a recently-proposed circuit simplification/extraction procedure for
+generic circuits based on the ZX-calculus.
+},
+keywords = {published}
+}
+
+@online{CSThesis,
+Author = {\textbf{Arianne} \textbf{van de Griend}},
+Title = {Natural language generation for commercial applications},
+Year = {2018},
+Eprint = {RG.2.2.21953.10087},
+Eprinttype = {ResearchGate},
+note = {Master thesis Computing Science},
+url_Paper = {https://www.researchgate.net/publication/335977746_Natural_language_generation_for_commercial_applications},
+abstract = {This master thesis gives an overview on natural language generation with the focus of dialogue systems for commercial use. 
+We give a description of the general approach to natural language generation and their neural architectures first.
+Then three application domains are discussed in more detail: language style transfer, dialogue response generation and controlling dialogue response generation. 
+For each domain, a use case was implemented and the results are discussed. We investigated automatic customer support, an empathetic automatic customer support and sentiment adjustment of reviews.
+We show promising results for the first two use cases, but the last use case was inconclusive due to difficulties with implementation. 
+We finish with a short discussion of the use of natural language generation in commercial applications and what can be improved in our current model architectures.},
+keywords = {unpublished}
+}
+
+@article{2004.06052,
+   title={Architecture-Aware Synthesis of Phase Polynomials for NISQ Devices},
+   volume={394},
+   DOI={10.4204/eptcs.394.8},
+   journal={Electronic Proceedings in Theoretical Computer Science},
+   publisher={Open Publishing Association},
+   author={\textbf{Arianne} \textbf{Meijer-van de Griend} and Duncan, Ross},
+   year={2023},
+   month=nov, 
+   pages={116-140} ,
+  note={In Proceedings QPL 2022, arXiv:2311.08375. This paper was originally accepted as Submission 38 in QPL2020, but was not included in the proceedings because of a clerical error.},
+  url_Paper = {https://arxiv.org/pdf/2004.06052.pdf},
+  url_Link = {https://www.youtube.com/watch?v=uOAA0nbh9MI},
+  abstract = {We propose a new algorithm to synthesise quantum circuits for phase polynomials, which takes
+  into account the qubit connectivity of the quantum computer. We focus on the architectures
+  of currently available NISQ devices. Our algorithm generates circuits with a smaller CNOT
+  depth than the algorithms currently used in Staq and t|ket>, while improving the runtime
+  with respect the former.},
+keywords = {published}
+}
+
+@article{quantmark,
+  author={\textbf{Adriana} \textbf{Meijer-van de Griend} and Nurminen, Jukka K},
+  journal={IEEE Transactions on Quantum Engineering}, 
+  title={QuantMark: A benchmarking API for comparing VQE algorithms}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={1-1},
+  doi={10.1109/TQE.2022.3159327},
+  url_Paper={https://ieeexplore.ieee.org/document/9735298},
+  abstract = {Thanks to the rise of quantum computers, many variations of the variational quantum eigensolver (VQE) have been proposed in recent times. This is a promising development for real quantum algorithms, as the VQE is a promising algorithm that runs on current quantum hardware. However, the popular method of comparing your algorithm versus a classical baseline in a small basis set is not meaningful in the big picture. Moreover, many papers use a different molecular representation or a different quantum computer to test their algorithms such that the used baselines are different between different papers. Thus, it is almost impossible to compare the different algorithms to each other. As a solution, we have built a benchmarking framework to standardize the VQE performance metrics, such that they can be analyzed more easily. Using our framework, any researcher working on the VQE can easily test their own algorithms against previous ones on the leaderboard without the need to reproduce previous work themselves.},
+keywords = {published}}
+
+@InProceedings{equi2021bit,
+  author =	{Equi, Massimo and \textbf{Arianne} \textbf{Meijer-van de Griend} and M\"{a}kinen, Veli},
+  title =	{{From Bit-Parallelism to Quantum String Matching for Labelled Graphs}},
+  booktitle =	{34th Annual Symposium on Combinatorial Pattern Matching (CPM 2023)},
+  pages =	{9:1--9:20},
+  series =	{Leibniz International Proceedings in Informatics (LIPIcs)},
+  ISBN =	{978-3-95977-276-1},
+  ISSN =	{1868-8969},
+  year =	{2023},
+  volume =	{259},
+  editor =	{Bulteau, Laurent and Lipt\'{a}k, Zsuzsanna},
+  publisher =	{Schloss Dagstuhl -- Leibniz-Zentrum f{\"u}r Informatik},
+  address =	{Dagstuhl, Germany},
+  URL =		{https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CPM.2023.9},
+  URN =		{urn:nbn:de:0030-drops-179637},
+  doi =		{10.4230/LIPIcs.CPM.2023.9},
+  annote =	{Keywords: Bit-parallelism, quantum computation, string matching, level DAGs},
+    keywords = {published}
+}
+
+@article{2205.00724,
+   title={Dynamic Qubit Routing with CNOT Circuit Synthesis for Quantum Compilation},
+   volume={394},
+   DOI={10.4204/eptcs.394.18},
+   journal={Electronic Proceedings in Theoretical Computer Science},
+   publisher={Open Publishing Association},
+   author={\textbf{Arianne} \textbf{Meijer-van de Griend} and Li, Sarah Meng},
+   year={2023},
+   month=nov, pages={363-399},
+  url_Paper = {https://arxiv.org/pdf/2205.00724.pdf},
+  abstract = {Many quantum computers have constraints regarding which two-qubit operations are locally allowed. To run a quantum circuit under those constraints, qubits need to be allocated to different quantum registers, and multi-qubit gates need to be routed accordingly. Recent developments have shown that Steiner-tree based compiling strategies provide a competitive tool to route CNOT gates. However, these algorithms require the qubit allocation to be decided before routing. Moreover, the allocation is fixed throughout the computation, i.e. the logical qubit will not move to a different qubit register. This is inefficient with respect to the CNOT count of the resulting circuit. In this paper, we propose the algorithm PermRowCol for routing CNOTs in a quantum circuit. It dynamically reallocates logical qubits during the computation, and thus results in fewer output CNOTs than the algorithms Steiner-Gauss[11] and RowCol [23]. Here we focus on circuits over CNOT only, but this method could be generalized to a routing and allocation strategy on Clifford+T circuits by slicing the quantum circuit into subcircuits composed of CNOTs and single-qubit gates. Additionally, PermRowCol can be used in place of Steiner-Gauss in the synthesis of phase polynomials as well as the extraction of quantum circuits from ZX-diagrams.},
+keywords = {published}
+}
+
+
+@article{meijer2023towards,
+  title={A comparison of quantum compilers using a DAG-based or phase polynomial-based intermediate representation},
+  author={\textbf{Meijer-van de Griend}, \textbf{Arianne}},
+  journal={Journal of Systems and Software},
+  volume={221},
+  pages={112224},
+  year={2025},
+  publisher={Elsevier},
+  keywords = {published},
+}
+
+@article{PhDThesis,
+  title={Advances in Quantum Compilation in the NISQ Era},
+  author={\textbf{Arianne} \textbf{Meijer-van de Griend}},
+  year={2024},
+  publisher={Helsingin yliopisto},
+  url_Paper={http://urn.fi/URN:ISBN:978-952-84-0077-6},
+  keywords = {published},
+  abstract = {Recent advances in the development of quantum technology have made it possible to run small quantum programs on real quantum computers. This has created a need for compiling methods specific to these quantum computers. Unlike classical computers, if a quantum computation takes too long, the qubits might decohere and lose their information, making the computation useless. Hence, well-optimized quantum programs are a necessity.
+
+Like classical computers, quantum computers have registers for qubits that are generally sparsely connected. However, classical compilation methods that rely on copying data from one register to another do not apply to quantum computers because qubits cannot be copied. This problem is called the qubit routing problem. Following classical compilation, one could solve the connectivity constraints by moving the qubits to adjacent qubit registers. However, this requires the addition of SWAP gates throughout the quantum circuit, resulting in a strictly longer program. Additionally, a SWAP gate on qubits is not cheap and requires three CNOT gates each.
+
+Instead, in this thesis, we have defined a new method for quantum compilation that is based in the quantum nature of the program to be compiled. Instead of routing the qubits directly, we generate new machine code (in the form of quantum circuits) from an intermediate representation. We call this process quantum circuit synthesis. During synthesis, we make sure that all generated gates are supported by the target quantum hardware. Additionally, if the synthesis process is optimal, the resulting quantum circuit will also be optimal, although the methods proposed in this thesis are all heuristic in nature due to the computational complexity of optimal architecture-aware synthesis.
+
+We construct the nested intermediate representation starting from sequences of CNOT circuits interleaved with single qubit gates and incrementally generalize the intermediate representation to a universal representation. In particular, we propose two algorithms for synthesizing CNOT circuits from their parity matrix representation and one algorithm for synthesizing phase polynomials (i.e. CNOT+$R_Z$ circuits). Additionally, we show that when combining these methods into the universal representation called Mixed ZX-phase polynomial, it is competitive with existing commercial quantum compilers IBM's Qiskit and Quantinuum's TKET for large circuits.
+
+This thesis additionally contains a proposal for a framework to benchmark the quality of circuits used in an algorithm called Variational Quantum Eigensolver (VQE). This framework attempts to measure how close the solution found by the VQE is to our best estimate of a real molecule (i.e. accuracy), rather than a classical simulation of the approximate molecule as given to the quantum computer (i.e. precision).},
+}
+
+@inproceedings{stirbu2024exposinghiddenlayersinterplay,
+  title={Exposing the hidden layers and interplay in the quantum software stack},
+  author={Stirbu, Vlad and \textbf{Meijer-van de Griend}, \textbf{Arianne} and Muff, Jake},
+  booktitle={2024 IEEE 21st International Conference on Software Architecture Companion (ICSA-C)},
+  pages={24--25},
+  year={2024},
+  organization={IEEE},
+  keywords = {published},
+}
+
+@article{winderl2023architectureawaresynthesisstabilizercircuits,
+      title={Architecture-Aware Synthesis of Stabilizer Circuits from Clifford Tableaus}, 
+      author={David Winderl and Qunsheng Huang and \textbf{Arianne} \textbf{Meijer-van de Griend} and Richie Yeung},
+      year={2023},
+      eprint={2309.08972},
+      archivePrefix={arXiv},
+      primaryClass={quant-ph},
+      url={https://arxiv.org/abs/2309.08972}, 
+      keywords = {submitted},
+      abstract = {Since quantum computing is currently in the NISQ-Era, compilation strategies to reduce the number of gates executed on specific hardware are required. In this work, we utilize the concept of synthesis of a data structure called Clifford tableaus, focusing on applying CNOTs within the respective connectivity graph of the quantum device. We hence contribute to the field of compilation or, more precisely, synthesis by reducing the number of CNOTs in the synthesized quantum circuit. Upon convergence, our method shows to outperform other state-of-the-art synthesis techniques, when executed with respect to a specific hardware. Upon executing the resulting circuits on real hardware, our synthesized circuits tend to increase the final fidelity and reduce the overall execution times.},
+}
+
+
+@misc{abdurakhimov2024technologyperformancebenchmarksiqms,
+keywords={preprint},
+      title={Technology and Performance Benchmarks of IQM's 20-Qubit Quantum Computer}, 
+      author={Leonid Abdurakhimov and Janos Adam and Hasnain Ahmad and Olli Ahonen and Manuel Algaba and Guillermo Alonso and Ville Bergholm and Rohit Beriwal and Matthias Beuerle and Clinton Bockstiegel and Alessio Calzona and Chun Fai Chan and Daniele Cucurachi and Saga Dahl and Rakhim Davletkaliyev and Olexiy Fedorets and Alejandro Gomez Frieiro and Zheming Gao and Johan Guldmyr and Andrew Guthrie and Juha Hassel and Hermanni Heimonen and Johannes Heinsoo and Tuukka Hiltunen and Keiran Holland and Juho Hotari and Hao Hsu and Antti Huhtala and Eric Hyyppä and Aleksi Hämäläinen and Joni Ikonen and Sinan Inel and David Janzso and Teemu Jaakkola and Mate Jenei and Shan Jolin and Kristinn Juliusson and Jaakko Jussila and Shabeeb Khalid and Seung-Goo Kim and Miikka Koistinen and Roope Kokkoniemi and Anton Komlev and Caspar Ockeloen-Korppi and Otto Koskinen and Janne Kotilahti and Toivo Kuisma and Vladimir Kukushkin and Kari Kumpulainen and Ilari Kuronen and Joonas Kylmälä and Niclas Lamponen and Julia Lamprich and Alessandro Landra and Martin Leib and Tianyi Li and Per Liebermann and Aleksi Lintunen and Wei Liu and Jürgen Luus and Fabian Marxer and \textbf{Arianne} \textbf{Meijer-van de Griend} and Kunal Mitra and Jalil Khatibi Moqadam and Jakub Mrożek and Henrikki Mäkynen and Janne Mäntylä and Tiina Naaranoja and Francesco Nappi and Janne Niemi and Lucas Ortega and Mario Palma and Miha Papič and Matti Partanen and Jari Penttilä and Alexander Plyushch and Wei Qiu and Aniket Rath and Kari Repo and Tomi Riipinen and Jussi Ritvas and Pedro Figueroa Romero and Jarkko Ruoho and Jukka Räbinä and Sampo Saarinen and Indrajeet Sagar and Hayk Sargsyan and Matthew Sarsby and Niko Savola and Mykhailo Savytskyi and Ville Selinmaa and Pavel Smirnov and Marco Marín Suárez and Linus Sundström and Sandra Słupińska and Eelis Takala and Ivan Takmakov and Brian Tarasinski and Manish Thapa and Jukka Tiainen and Francesca Tosto and Jani Tuorila and Carlos Valenzuela and David Vasey and Edwin Vehmaanperä and Antti Vepsäläinen and Aapo Vienamo and Panu Vesanen and Alpo Välimaa and Jaap Wesdorp and Nicola Wurz and Elisabeth Wybo and Lily Yang and Ali Yurtalan},
+      year={2024},
+      eprint={2408.12433},
+      archivePrefix={arXiv},
+      primaryClass={quant-ph},
+      url={https://arxiv.org/abs/2408.12433}, 
+}
+
+@INPROCEEDINGS{10621734,
+  author={\textbf{Arianne} \textbf{Meijer-van de Griend}},
+  booktitle={2024 IEEE International Conference on Software Analysis, Evolution and Reengineering - Companion (SANER-C)}, 
+  title={The Quantum Circuit Model is not a Practical Representation of Quantum Software}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={146-148},
+  keywords={Codes;Computational modeling;Debugging;Programming;Software;Hardware;Mathematical models;quantum computing;quantum circuit model;quantum software, published},
+  doi={10.1109/SANER-C62648.2024.00025}}
+
+@inproceedings{huang2024redefining,
+  title={Redefining lexicographical ordering: Optimizing pauli string decompositions for quantum compiling},
+  author={Huang, Qunsheng and Winderl, David and \textbf{Meijer-van de Griend}, \textbf{Arianne} and Yeung, Richie},
+  booktitle={2024 IEEE International Conference on Quantum Computing and Engineering (QCE)},
+  volume={1},
+  pages={885--896},
+  year={2024},
+  organization={IEEE},
+  keywords = {published}
+}
+
+@misc{renger2025superconductingqubitresonatorquantumprocessor,
+      title={A Superconducting Qubit-Resonator Quantum Processor with Effective All-to-All Connectivity}, 
+      author={Michael Renger and Jeroen Verjauw and Nicola Wurz and Amin Hosseinkhani and Caspar Ockeloen-Korppi and Wei Liu and Aniket Rath and Manish J. Thapa and Florian Vigneau and Elisabeth Wybo and Ville Bergholm and Chun Fai Chan and Bálint Csatári and Saga Dahl and Rakhim Davletkaliyev and Rakshyakar Giri and Daria Gusenkova and Hermanni Heimonen and Tuukka Hiltunen and Hao Hsu and Eric Hyyppä and Joni Ikonen and Tyler Jones and Shabeeb Khalid and Seung-Goo Kim and Miikka Koistinen and Anton Komlev and Janne Kotilahti and Vladimir Kukushkin and Julia Lamprich and Alessandro Landra and Lan-Hsuan Lee and Tianyi Li and Per Liebermann and Sourav Majumder and Janne Mäntylä and Fabian Marxer and \textbf{Arianne} \textbf{Meijer - van de Griend} and Vladimir Milchakov and Jakub Mrożek and Jayshankar Nath and Tuure Orell and Miha Papič and Matti Partanen and Alexander Plyushch and Stefan Pogorzalek and Jussi Ritvas and Pedro Figuero Romero and Ville Sampo and Marko Seppälä and Ville Selinmaa and Linus Sundström and Ivan Takmakov and Brian Tarasinski and Jani Tuorila and Olli Tyrkkö and Alpo Välimaa and Jaap Wesdorp and Ping Yang and Liuqi Yu and Johannes Heinsoo and Antti Vepsäläinen and William Kindel and Hsiang-Sheng Ku and Frank Deppe},
+      year={2025},
+      eprint={2503.10903},
+      archivePrefix={arXiv},
+      primaryClass={quant-ph},
+      url={https://arxiv.org/abs/2503.10903}, 
+      keywords={unpublished}
+}
+
+@inproceedings{uotila2025perspectives,
+  title={Perspectives on Utilization of Measurements in Quantum Algorithms},
+  author={Uotila, Valter and Salmenper{\"a}, Ilmo and Becker, Leo and Meijer-van de Griend, Arianne and Shinde, Aakash Ravindra and Nurminen, Jukka K},
+  booktitle={2025 IEEE International Conference on Quantum Software (QSW)},
+  pages={01--12},
+  year={2025},
+  organization={IEEE}
+}
+
+@inproceedings{salmenpera2024impact,
+  title={The impact of feature embedding placement in the ansatz of a quantum kernel in QSVMs},
+  author={Salmenper{\"a}, Ilmo and Kuhtarskis, Ilmars and van de Griend, Arianne Meijer and Nurminen, Jukka K},
+  booktitle={2024 IEEE International Conference on Quantum Computing and Engineering (QCE)},
+  volume={1},
+  pages={1663--1671},
+  year={2024},
+  organization={IEEE}
+}
+
+@article{perkkola2025optimizing,
+  title={Optimizing State Preparation for Variational Quantum Regression on NISQ Hardware},
+  author={Perkkola, Frans and Salmeper{\"a}, Ilmo and de Griend, Arianne Meijer-van and Wang, C-C Joseph and Bennink, Ryan S and Nurminen, Jukka K},
+  journal={arXiv preprint arXiv:2505.17713},
+  year={2025}
+}
