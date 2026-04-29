@@ -10,50 +10,20 @@ import type { CsvRow, BibEntry } from "@/lib/parsers";
 export const profile = personalProfile.replace(/\s+/g, " ").trim();
 
 export type EduRow = CsvRow & {
-  startdate: string;
-  enddate: string;
-  degree: string;
-  institute: string;
-  city: string;
-  country: string;
-  link: string;
-  notes: string;
-  thesis: string;
-  inresume: string;
+  startdate: string; enddate: string; degree: string; institute: string;
+  city: string; country: string; link: string; notes: string; thesis: string; inresume: string;
 };
-
 export type ExpRow = CsvRow & {
-  startdate: string;
-  enddate: string;
-  title: string;
-  institute: string;
-  city: string;
-  country: string;
-  link: string;
-  description: string;
-  bibtex: string;
-  inresume: string;
+  startdate: string; enddate: string; title: string; institute: string;
+  city: string; country: string; link: string; description: string; bibtex: string; inresume: string;
 };
-
-export type TeachRow = CsvRow & {
-  startdate: string;
-  enddate: string;
-  title: string;
-  institute: string;
-  city: string;
-  country: string;
-  link: string;
-  description: string;
-  bibtex: string;
-  inresume: string;
-};
+export type TeachRow = ExpRow;
 
 export const education = parseCsv(educationCsv) as EduRow[];
 export const experience = parseCsv(experienceCsv) as ExpRow[];
 export const teaching = parseCsv(teachingCsv) as TeachRow[];
 export const publications: BibEntry[] = parseBib(publicationsBib);
 
-/** Split teaching into courses vs supervised students. */
 export function splitTeaching(rows: TeachRow[]) {
   const supervisions: TeachRow[] = [];
   const courses: TeachRow[] = [];
@@ -65,54 +35,62 @@ export function splitTeaching(rows: TeachRow[]) {
   return { courses, supervisions };
 }
 
-/** Combined sorted timeline of education + experience (most recent first). */
+export type TimelineCategory =
+  | "research"
+  | "software engineering"
+  | "internship"
+  | "education"
+  | "teaching";
+
 export type TimelineItem = {
-  kind: "education" | "experience";
-  start: string;
-  end: string;
-  startSort: number;
-  endSort: number;
-  title: string;
-  institute: string;
-  city: string;
-  country: string;
-  link: string;
-  notes: string;
-  inresume: boolean;
+  kind: "education" | "experience" | "teaching";
+  category: TimelineCategory;
+  start: string; end: string;
+  startSort: number; endSort: number;
+  title: string; institute: string; city: string; country: string;
+  link: string; notes: string;
 };
+
+function categorizeExperience(title: string): TimelineCategory {
+  const t = title.toLowerCase();
+  if (/intern(ship)?|thesis/.test(t)) return "internship";
+  if (/engineer/.test(t)) return "software engineering";
+  if (/research|postdoc|phd|doctoral|scientist/.test(t)) return "research";
+  if (/teach|ta\b|tutor/.test(t)) return "teaching";
+  return "research";
+}
 
 export const timeline: TimelineItem[] = [
   ...education
     .filter((e) => e.inresume === "y")
     .map<TimelineItem>((e) => ({
       kind: "education",
-      start: e.startdate,
-      end: e.enddate,
-      startSort: parseMonth(e.startdate),
-      endSort: parseMonth(e.enddate),
-      title: e.degree,
-      institute: e.institute,
-      city: e.city,
-      country: e.country,
+      category: "education",
+      start: e.startdate, end: e.enddate,
+      startSort: parseMonth(e.startdate), endSort: parseMonth(e.enddate),
+      title: e.degree, institute: e.institute, city: e.city, country: e.country,
       link: e.link,
       notes: [e.notes, e.thesis ? `Thesis: ${e.thesis}` : ""].filter(Boolean).join(" · "),
-      inresume: true,
     })),
   ...experience
     .filter((e) => e.inresume === "y")
     .map<TimelineItem>((e) => ({
       kind: "experience",
-      start: e.startdate,
-      end: e.enddate,
-      startSort: parseMonth(e.startdate),
-      endSort: parseMonth(e.enddate),
-      title: e.title,
-      institute: e.institute,
-      city: e.city,
-      country: e.country,
-      link: e.link,
-      notes: e.description,
-      inresume: true,
+      category: categorizeExperience(e.title),
+      start: e.startdate, end: e.enddate,
+      startSort: parseMonth(e.startdate), endSort: parseMonth(e.enddate),
+      title: e.title, institute: e.institute, city: e.city, country: e.country,
+      link: e.link, notes: e.description,
+    })),
+  ...teaching
+    .filter((e) => e.inresume === "y")
+    .map<TimelineItem>((e) => ({
+      kind: "teaching",
+      category: "teaching",
+      start: e.startdate, end: e.enddate,
+      startSort: parseMonth(e.startdate), endSort: parseMonth(e.enddate),
+      title: e.title, institute: e.institute, city: e.city, country: e.country,
+      link: e.link, notes: e.description,
     })),
 ].sort((a, b) => b.endSort - a.endSort || b.startSort - a.startSort);
 
@@ -148,4 +126,5 @@ export const contacts = {
   github: "https://github.com/aerylia",
   linkedin: "https://linkedin.com/in/aerylia",
   orcid: "https://orcid.org/0000-0001-5946-0958",
+  scholar: "https://scholar.google.com/citations?user=erfYRsAAAAAJ&hl=en",
 };
