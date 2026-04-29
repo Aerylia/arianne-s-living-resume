@@ -7,5 +7,5 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
-  base: '/', // Important for GitHub Pages!
+  base: '/arianne-s-living-resume/', // Important for GitHub Pages!
 });
