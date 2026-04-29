@@ -1,0 +1,3 @@
+I  am a Postdoc working on quantum software for Noisy Intermediate-scale Quantum (NISQ) devices at the University of Helsinki My specialization is in compilation methods for quantum computers. 
+
+Additionally, I am a Quantum Software Engineer at IQM.
