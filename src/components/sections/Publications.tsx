@@ -21,6 +21,7 @@ function Sparkline() {
 
   if (!counts) return null;
   const maxCount = Math.max(...counts.map((d) => d.count), 1);
+  const BAR_AREA = 72; // px
 
   return (
     <div className="rounded-2xl border border-border bg-card/60 p-5">
@@ -32,23 +33,28 @@ function Sparkline() {
           {counts[0].year}–{counts[counts.length - 1].year}
         </span>
       </div>
-      <div className="flex items-end gap-2 h-20">
-        {counts.map((d) => (
-          <div key={d.year} className="flex-1 flex flex-col items-center gap-1">
-            <div
-              className="w-full rounded-t-md"
-              style={{
-                height: `${(d.count / maxCount) * 100}%`,
-                minHeight: d.count ? 4 : 0,
-                background: "linear-gradient(180deg, var(--rose), var(--lilac))",
-              }}
-              title={`${d.year}: ${d.count}`}
-            />
-            <span className="font-mono text-[10px] text-muted-foreground">
-              {String(d.year).slice(-2)}
-            </span>
-          </div>
-        ))}
+      <div className="flex items-end gap-2" style={{ height: BAR_AREA + 22 }}>
+        {counts.map((d) => {
+          const h = d.count > 0 ? Math.max(4, (d.count / maxCount) * BAR_AREA) : 0;
+          return (
+            <div key={d.year} className="flex-1 flex flex-col items-center justify-end gap-1">
+              <span className="font-mono text-[10px] leading-none text-foreground/70">
+                {d.count || ""}
+              </span>
+              <div
+                className="w-full rounded-t-md"
+                style={{
+                  height: `${h}px`,
+                  background: "linear-gradient(180deg, var(--rose), var(--lilac))",
+                }}
+                title={`${d.year}: ${d.count}`}
+              />
+              <span className="font-mono text-[10px] leading-none text-muted-foreground">
+                {String(d.year).slice(-2)}
+              </span>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -143,7 +149,7 @@ export function Publications() {
             >
               <div className="flex flex-wrap items-baseline justify-between gap-2 mb-1">
                 <span className="font-mono text-xs text-[var(--mint)]">
-                  [{p.key}] {p.year || "n.d."}
+                  {p.year || "n.d."}
                 </span>
                 <span className="font-mono text-xs text-muted-foreground">
                   {p.category}

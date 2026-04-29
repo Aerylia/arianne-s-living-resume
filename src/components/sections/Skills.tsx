@@ -14,7 +14,7 @@ export function Skills() {
           01 · skills && languages
         </p>
         <h2 className="text-3xl md:text-4xl font-display font-semibold mb-10">
-          <span className="squiggle">What I do</span>, in bars and dots
+          <span className="squiggle">Things I&rsquo;m good at</span> &amp; languages I speak
         </h2>
 
         <div className="grid gap-10 md:grid-cols-2">
