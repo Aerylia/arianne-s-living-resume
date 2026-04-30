@@ -1,8 +1,8 @@
-import { skills, languages } from "@/data";
+import { skills, languages, programmingLanguages } from "@/data";
 
 const groupColor: Record<string, string> = {
-  tech: "var(--mint)",
   research: "var(--lilac)",
+  soft: "var(--mint)",
   creative: "var(--rose)",
 };
 
@@ -50,7 +50,7 @@ export function Skills() {
 
           <div>
             <h3 className="font-mono text-sm uppercase tracking-wider text-muted-foreground mb-5">
-              Languages
+              Spoken languages
             </h3>
             <ul className="space-y-4">
               {languages.map((l) => (
@@ -77,8 +77,35 @@ export function Skills() {
               ))}
             </ul>
 
+            <h3 className="font-mono text-sm uppercase tracking-wider text-muted-foreground mt-10 mb-5">
+              Programming languages
+            </h3>
+            <ul className="space-y-4">
+              {programmingLanguages.map((l) => (
+                <li key={l.name} className="flex items-center justify-between">
+                  <div>
+                    <div className="text-base">{l.name}</div>
+                    <div className="font-mono text-xs text-muted-foreground">
+                      {l.label}
+                    </div>
+                  </div>
+                  <div className="flex gap-1.5">
+                    {Array.from({ length: 5 }).map((_, i) => (
+                      <span
+                        key={i}
+                        className="h-3 w-3 rounded-sm rotate-45"
+                        style={{
+                          backgroundColor:
+                            i < l.level ? "var(--lilac)" : "color-mix(in oklab, var(--lilac) 20%, transparent)",
+                        }}
+                      />
+                    ))}
+                  </div>
+                </li>
+              ))}
+            </ul>
+
             <p className="mt-8 font-mono text-xs text-muted-foreground">
-              {/* code-comment style annotation */}
               {`// proficiency = (years_used * curiosity) ** persistence`}
             </p>
           </div>
