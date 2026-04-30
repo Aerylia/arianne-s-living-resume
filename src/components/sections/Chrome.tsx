@@ -45,40 +45,45 @@ export function Nav() {
 export function Footer() {
   return (
     <footer className="border-t border-border py-12 mt-12">
-      <div className="container mx-auto max-w-5xl px-6 grid gap-8 md:grid-cols-[1fr_auto] items-center">
-        <div>
-          <p className="font-display text-lg">
-            Let&rsquo;s build something{" "}
-            <span className="text-[var(--rose)]">weird</span> and{" "}
-            <span className="text-[var(--mint)]">rigorous</span>.
-          </p>
-          <p className="mt-2 font-mono text-xs text-muted-foreground">
-            <a href={`mailto:${contacts.email}`} className="hover:text-foreground">
-              {contacts.email}
+      <div className="container mx-auto max-w-5xl px-6">
+        <p className="font-display text-lg">
+          Let&rsquo;s build something{" "}
+          <span className="text-[var(--rose)]">weird</span> and{" "}
+          <span className="text-[var(--mint)]">rigorous</span>.
+        </p>
+        <p className="mt-2 font-mono text-xs text-muted-foreground">
+          <a href={`mailto:${contacts.email}`} className="hover:text-foreground">
+            {contacts.email}
+          </a>
+          {" · "}
+          <a href={contacts.github} className="hover:text-foreground" target="_blank" rel="noreferrer">
+            github/aerylia
+          </a>
+          {" · "}
+          <a href={contacts.linkedin} className="hover:text-foreground" target="_blank" rel="noreferrer">
+            linkedin/aerylia
+          </a>
+          {" · "}
+          <a href={contacts.orcid} className="hover:text-foreground" target="_blank" rel="noreferrer">
+            orcid
+          </a>
+        </p>
+        <p className="mt-4 font-mono text-[10px] text-muted-foreground">
+          // hand-coded with love · {new Date().getFullYear()}
+          <br />
+          <span className="opacity-70">
+            (ok, full disclosure: this site is fully AI-generated with{" "}
+            <a
+              href="https://lovable.dev"
+              target="_blank"
+              rel="noreferrer"
+              className="underline hover:text-foreground"
+            >
+              lovable.dev
             </a>
-            {" · "}
-            <a href={contacts.github} className="hover:text-foreground" target="_blank" rel="noreferrer">
-              github/aerylia
-            </a>
-            {" · "}
-            <a href={contacts.linkedin} className="hover:text-foreground" target="_blank" rel="noreferrer">
-              linkedin/aerylia
-            </a>
-          </p>
-          <p className="mt-4 font-mono text-[10px] text-muted-foreground">
-            // hand-coded with love · {new Date().getFullYear()}
-          </p>
-        </div>
-        <a href={contacts.orcid} target="_blank" rel="noreferrer" className="block">
-          <img
-            src="/orcid-qr.png"
-            alt="ORCID QR code"
-            width={96}
-            height={96}
-            loading="lazy"
-            className="rounded-xl border border-border bg-cream p-1"
-          />
-        </a>
+            )
+          </span>
+        </p>
       </div>
     </footer>
   );
