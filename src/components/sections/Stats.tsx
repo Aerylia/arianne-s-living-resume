@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
-import { publications, timeline } from "@/data";
-import { getScholarStats } from "@/server/scholar.functions";
+import { publications } from "@/data";
+
+// Static snapshot from Google Scholar — update manually when needed.
+// Source: https://scholar.google.com/citations?user=erfYRsAAAAAJ&hl=en
+const SCHOLAR = { hIndex: 7, citations: 296 };
 
 function Stat({
   value,
