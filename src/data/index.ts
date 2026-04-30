@@ -141,11 +141,9 @@ export const languages = [
 // Programming languages — proficiency on a 1–5 scale, mirroring `languages`.
 export const programmingLanguages = [
   { name: "Python", level: 5, label: "Daily driver" },
-  { name: "TypeScript / JavaScript", level: 4, label: "Comfortable" },
-  { name: "Rust", level: 3, label: "Working knowledge" },
-  { name: "C++", level: 3, label: "Working knowledge" },
+  { name: "Rust", level: 4, label: "Working knowledge" },
+  { name: "Matlab", level: 3, label: "Used in projects" },
   { name: "Java", level: 3, label: "Used in projects" },
-  { name: "SQL", level: 3, label: "Used in projects" },
   { name: "Haskell", level: 2, label: "Familiar" },
   { name: "Prolog", level: 2, label: "Familiar" },
 ];

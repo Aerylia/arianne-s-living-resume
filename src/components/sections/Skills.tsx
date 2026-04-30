@@ -105,9 +105,6 @@ export function Skills() {
               ))}
             </ul>
 
-            <p className="mt-8 font-mono text-xs text-muted-foreground">
-              {`// proficiency = (years_used * curiosity) ** persistence`}
-            </p>
           </div>
         </div>
       </div>
