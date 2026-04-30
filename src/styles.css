@@ -132,6 +132,9 @@
     background-position: 0 100%;
     background-size: 80px 8px;
     padding-bottom: 0.4em;
+    line-height: 1.45;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
   }
 
   .blob {
