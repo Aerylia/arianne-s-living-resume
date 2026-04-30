@@ -78,7 +78,7 @@ const sideGigRows = experience.filter(
 
 export const timeline: TimelineItem[] = [
   ...education
-    .filter((e) => e.inresume === "y")
+    //.filter((e) => e.inresume === "y")
     .map<TimelineItem>((e) => ({
       kind: "education",
       category: "education",
@@ -89,7 +89,7 @@ export const timeline: TimelineItem[] = [
       notes: [e.notes, e.thesis ? `Thesis: ${e.thesis}` : ""].filter(Boolean).join(" · "),
     })),
   ...experience
-    .filter((e) => e.inresume === "y")
+    //.filter((e) => e.inresume === "y")
     .map<TimelineItem>((e) => ({
       kind: "experience",
       category: categorizeExperience(e.title),
@@ -107,7 +107,7 @@ export const timeline: TimelineItem[] = [
     link: e.link, notes: e.description,
   })),
   ...teaching
-    .filter((e) => e.inresume === "y")
+    //.filter((e) => e.inresume === "y")
     .map<TimelineItem>((e) => ({
       kind: "teaching",
       category: "teaching",
