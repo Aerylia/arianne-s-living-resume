@@ -45,9 +45,9 @@ export function Stats() {
     <section className="py-10">
       <div className="container mx-auto max-w-5xl px-6">
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+          <Stat value={countries} label="countries lived in" color="var(--coral)" />
           <Stat value={`${yearsInQuantum}+`} label="years in quantum" color="var(--rose)" />
           <Stat value={pubCount} label="publications" color="var(--mint)" />
-          <Stat value={countries} label="countries lived in" color="var(--coral)" />
           <Stat
             value={SCHOLAR.hIndex}
             label="h-index"
