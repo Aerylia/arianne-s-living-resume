@@ -1,6 +1,8 @@
-import { useEffect, useState } from "react";
-import { publications, timeline } from "@/data";
-import { getScholarStats } from "@/server/scholar.functions";
+import { publications } from "@/data";
+
+// Static snapshot from Google Scholar — update manually when needed.
+// Source: https://scholar.google.com/citations?user=erfYRsAAAAAJ&hl=en
+const SCHOLAR = { hIndex: 7, citations: 296 };
 
 function Stat({
   value,
@@ -42,27 +44,6 @@ export function Stats() {
   // Hardcoded: Netherlands, United Kingdom, Finland — 3 countries lived in.
   const countries = 3;
 
-  const [hIndex, setHIndex] = useState<number | null>(null);
-  const [hSource, setHSource] = useState<"scholar" | "fallback" | null>(null);
-
-  useEffect(() => {
-    let cancelled = false;
-    getScholarStats()
-      .then((s) => {
-        if (cancelled) return;
-        setHIndex(s.hIndex);
-        setHSource(s.source);
-      })
-      .catch(() => {
-        if (cancelled) return;
-        setHIndex(7);
-        setHSource("fallback");
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
-
   return (
     <section className="py-10">
       <div className="container mx-auto max-w-5xl px-6">
@@ -72,10 +53,10 @@ export function Stats() {
           <Stat value={venueCount} label="venues" color="var(--lilac)" />
           <Stat value={countries} label="countries lived in" color="var(--coral)" />
           <Stat
-            value={hIndex ?? "…"}
+            value={SCHOLAR.hIndex}
             label="h-index"
             color="var(--mint)"
-            hint={hSource === "scholar" ? "live · scholar" : "cached"}
+            hint={`${SCHOLAR.citations} citations · scholar`}
           />
         </div>
       </div>
