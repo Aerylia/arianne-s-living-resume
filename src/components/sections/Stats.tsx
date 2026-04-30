@@ -38,24 +38,20 @@ function Stat({
 export function Stats() {
   const yearsInQuantum = new Date().getFullYear() - 2019;
   const pubCount = publications.length;
-  const venueCount = new Set(
-    publications.map((p) => p.venue.toLowerCase()).filter(Boolean),
-  ).size;
   // Hardcoded: Netherlands, United Kingdom, Finland — 3 countries lived in.
   const countries = 3;
 
   return (
     <section className="py-10">
       <div className="container mx-auto max-w-5xl px-6">
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           <Stat value={`${yearsInQuantum}+`} label="years in quantum" color="var(--rose)" />
           <Stat value={pubCount} label="publications" color="var(--mint)" />
-          <Stat value={venueCount} label="venues" color="var(--lilac)" />
           <Stat value={countries} label="countries lived in" color="var(--coral)" />
           <Stat
             value={SCHOLAR.hIndex}
             label="h-index"
-            color="var(--mint)"
+            color="var(--lilac)"
             hint={`${SCHOLAR.citations} citations · scholar`}
           />
         </div>

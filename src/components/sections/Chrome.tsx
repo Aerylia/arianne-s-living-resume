@@ -13,13 +13,10 @@ export function Nav() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-40 backdrop-blur-md bg-background/70 border-b border-border">
       <div className="container mx-auto max-w-5xl px-6 py-3 flex items-center justify-between gap-4">
-        <a href="#about" className="font-display text-base font-semibold">
-          <span className="text-[var(--rose)]">a</span>
+        <a href="#about" className="font-display text-base font-semibold font-mono">
+          <span className="text-[var(--rose)]">arianne</span>
           <span className="text-[var(--mint)]">.</span>
-          <span className="text-[var(--lilac)]">m</span>
-          <span className="font-mono text-xs text-muted-foreground ml-2 hidden sm:inline">
-            // living resume
-          </span>
+          <span className="text-[var(--lilac)]">meijer</span>
         </a>
         <ul className="hidden md:flex items-center gap-1 font-mono text-xs">
           {links.map((l) => (

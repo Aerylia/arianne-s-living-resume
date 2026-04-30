@@ -11,7 +11,7 @@ export function Teaching() {
           03 · teaching && supervision
         </p>
         <h2 className="text-3xl md:text-4xl font-display font-semibold mb-10">
-          <span className="squiggle">Passing it on</span>
+          <span className="squiggle">Teaching the next round</span> of quantum nerds
         </h2>
 
         <div className="grid gap-12 lg:grid-cols-2">

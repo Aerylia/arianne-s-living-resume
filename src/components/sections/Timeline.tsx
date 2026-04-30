@@ -9,6 +9,16 @@ const ALL_CATEGORIES: TimelineCategory[] = [
   "internship",
   "education",
   "teaching",
+  "side gig",
+];
+
+// Categories visible by default — side gigs are opt-in.
+const DEFAULT_ON: TimelineCategory[] = [
+  "research",
+  "software engineering",
+  "internship",
+  "education",
+  "teaching",
 ];
 
 const CAT_COLOR: Record<TimelineCategory, string> = {
@@ -17,16 +27,17 @@ const CAT_COLOR: Record<TimelineCategory, string> = {
   internship: "var(--coral)",
   education: "var(--rose)",
   teaching: "var(--peach, var(--rose))",
+  "side gig": "var(--muted-foreground)",
 };
 
 export function Timeline() {
   const [enabled, setEnabled] = useState<Set<TimelineCategory>>(
-    () => new Set(ALL_CATEGORIES),
+    () => new Set(DEFAULT_ON),
   );
 
   const counts = useMemo(() => {
     const m: Record<TimelineCategory, number> = {
-      research: 0, "software engineering": 0, internship: 0, education: 0, teaching: 0,
+      research: 0, "software engineering": 0, internship: 0, education: 0, teaching: 0, "side gig": 0,
     };
     for (const t of timeline) m[t.category]++;
     return m;

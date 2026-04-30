@@ -40,7 +40,8 @@ export type TimelineCategory =
   | "software engineering"
   | "internship"
   | "education"
-  | "teaching";
+  | "teaching"
+  | "side gig";
 
 export type TimelineItem = {
   kind: "education" | "experience" | "teaching";
@@ -51,14 +52,29 @@ export type TimelineItem = {
   link: string; notes: string;
 };
 
+const SIDE_GIG_TITLES = new Set([
+  "manual sorter",
+  "outbound call center employee",
+  "intern",
+  "problem solver",
+]);
+
 function categorizeExperience(title: string): TimelineCategory {
-  const t = title.toLowerCase();
+  const t = title.toLowerCase().trim();
+  if (SIDE_GIG_TITLES.has(t)) return "side gig";
   if (/intern(ship)?|thesis/.test(t)) return "internship";
   if (/engineer/.test(t)) return "software engineering";
   if (/research|postdoc|phd|doctoral|scientist/.test(t)) return "research";
   if (/teach|ta\b|tutor/.test(t)) return "teaching";
   return "research";
 }
+
+// Side-gig rows live in CSV with inresume="" or "n" but we want them in the
+// timeline as opt-in. We surface any experience row whose title matches the
+// side-gig list, regardless of inresume.
+const sideGigRows = experience.filter(
+  (e) => SIDE_GIG_TITLES.has(e.title.toLowerCase().trim()) && e.inresume !== "y",
+);
 
 export const timeline: TimelineItem[] = [
   ...education
@@ -82,6 +98,14 @@ export const timeline: TimelineItem[] = [
       title: e.title, institute: e.institute, city: e.city, country: e.country,
       link: e.link, notes: e.description,
     })),
+  ...sideGigRows.map<TimelineItem>((e) => ({
+    kind: "experience",
+    category: "side gig",
+    start: e.startdate, end: e.enddate,
+    startSort: parseMonth(e.startdate), endSort: parseMonth(e.enddate),
+    title: e.title, institute: e.institute, city: e.city, country: e.country,
+    link: e.link, notes: e.description,
+  })),
   ...teaching
     .filter((e) => e.inresume === "y")
     .map<TimelineItem>((e) => ({
@@ -94,15 +118,17 @@ export const timeline: TimelineItem[] = [
     })),
 ].sort((a, b) => b.endSort - a.endSort || b.startSort - a.startSort);
 
-export const skills: { name: string; level: number; group: "tech" | "research" | "creative" }[] = [
+export const skills: { name: string; level: number; group: "research" | "soft" | "creative" }[] = [
   { name: "Quantum compilation", level: 95, group: "research" },
-  { name: "Python", level: 95, group: "tech" },
-  { name: "Quantum software stacks", level: 90, group: "tech" },
-  { name: "Machine learning", level: 80, group: "research" },
+  { name: "Quantum software stacks", level: 90, group: "research" },
   { name: "Algorithm design", level: 90, group: "research" },
-  { name: "Rust / C++", level: 60, group: "tech" },
+  { name: "Machine learning", level: 80, group: "research" },
   { name: "Scientific writing", level: 90, group: "creative" },
   { name: "Public speaking", level: 80, group: "creative" },
+  { name: "Mentoring & supervision", level: 85, group: "soft" },
+  { name: "Cross-disciplinary collaboration", level: 90, group: "soft" },
+  { name: "Curiosity-driven problem solving", level: 95, group: "soft" },
+  { name: "Explaining hard things simply", level: 85, group: "soft" },
 ];
 
 export const languages = [
@@ -110,6 +136,18 @@ export const languages = [
   { name: "Dutch", level: 5, label: "Native" },
   { name: "German", level: 3, label: "Intermediate" },
   { name: "Finnish", level: 1, label: "Beginner" },
+];
+
+// Programming languages — proficiency on a 1–5 scale, mirroring `languages`.
+export const programmingLanguages = [
+  { name: "Python", level: 5, label: "Daily driver" },
+  { name: "TypeScript / JavaScript", level: 4, label: "Comfortable" },
+  { name: "Rust", level: 3, label: "Working knowledge" },
+  { name: "C++", level: 3, label: "Working knowledge" },
+  { name: "Java", level: 3, label: "Used in projects" },
+  { name: "SQL", level: 3, label: "Used in projects" },
+  { name: "Haskell", level: 2, label: "Familiar" },
+  { name: "Prolog", level: 2, label: "Familiar" },
 ];
 
 export const hobbies = [
