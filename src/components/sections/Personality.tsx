@@ -15,7 +15,7 @@ export function Personality() {
           <blockquote className="relative rounded-3xl border border-border bg-card/70 p-8 sticker-lilac">
             <span
               aria-hidden
-              className="absolute -top-6 left-6 font-display text-7xl text-[var(--rose)]/60 leading-none"
+              className="absolute -top-12 -left-4 md:-top-16 md:-left-6 font-display text-[8rem] md:text-[10rem] text-[var(--rose)]/70 leading-none select-none"
             >
               &ldquo;
             </span>

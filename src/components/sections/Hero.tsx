@@ -39,8 +39,8 @@ export function Hero() {
           </div>
 
           <div>
-            <h1 className="text-4xl md:text-6xl font-display font-semibold leading-[1.05]">
-              <span className="squiggle">Arianne</span>{" "}
+            <h1 className="text-4xl md:text-6xl font-display font-semibold leading-[1.15] md:leading-[1.05]">
+              <span className="squiggle inline-block">Arianne</span>{" "}
               <span className="text-[var(--rose)]">Meijer</span>
               <span className="text-muted-foreground"> — </span>
               <span className="text-[var(--lilac)]">van de Griend</span>
